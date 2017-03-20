@@ -16,6 +16,8 @@ public class KeyboardChangeListener implements ViewTreeObserver.OnGlobalLayoutLi
     private int mOriginHeight;
     private int mPreHeight;
     private KeyBoardListener mKeyBoardListen;
+	/*状态栏高度*/
+    private float statusbarHeight = 0;
 
     public interface KeyBoardListener {
         /**
@@ -42,6 +44,15 @@ public class KeyboardChangeListener implements ViewTreeObserver.OnGlobalLayoutLi
     }
 
     private View findContentView(Activity contextObj) {
+		try {
+            int resourceId = contextObj.getResources().getIdentifier("status_bar_height", "dimen", "android");
+            if (resourceId > 0) {
+                //获取状态栏高度
+                statusbarHeight = contextObj.getResources().getDimensionPixelSize(resourceId);
+            }
+        }catch (Exception e){
+
+        }
         return contextObj.findViewById(android.R.id.content);
     }
 
@@ -57,6 +68,10 @@ public class KeyboardChangeListener implements ViewTreeObserver.OnGlobalLayoutLi
             return;
         }
         boolean hasChange = false;
+		if(Math.abs(mOriginHeight-currHeight)<=Math.floor(statusbarHeight)){
+            /*修正，上一个界面为全屏时计算错误问题*/
+            mOriginHeight = currHeight;
+        }
         if (mPreHeight == 0) {
             mPreHeight = currHeight;
             mOriginHeight = currHeight;
