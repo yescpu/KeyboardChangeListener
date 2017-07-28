@@ -1,3 +1,6 @@
+
+[中文](https://github.com/yescpu/KeyboardChangeListener/blob/yescpu-patch-1/README_ZH_HANS.MD)
+
 # KeyboardChangeListener
 simple and powerful Keyboard show/hidden change listener,without having to add a layout and can run in every Activity;  
 
