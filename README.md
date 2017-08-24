@@ -4,7 +4,7 @@
 # KeyboardChangeListener
 simple and powerful Keyboard show/hidden change listener,without having to add a layout and can run in every Activity;  
 
-# useage  
+# usage  
 make activity:
 ``` xml
 android:windowSoftInputMode="adjustResize"
