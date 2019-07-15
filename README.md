@@ -11,7 +11,7 @@ android:windowSoftInputMode="adjustResize"
 ```
 java:
 ``` java
- new KeyboardChangeListener(this).setKeyBoardListener(new KeyboardChangeListener.KeyBoardListener() {
+ new KeyboardChangeListener(this).setKeyboardListener(new KeyboardChangeListener.KeyboardListener() {
             @Override
             public void onKeyboardChange(boolean isShow, int keyboardHeight) {
                 Log.d(TAG, "isShow = [" + isShow + "], keyboardHeight = [" + keyboardHeight + "]");
