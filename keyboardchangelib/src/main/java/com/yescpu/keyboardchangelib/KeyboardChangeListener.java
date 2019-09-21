@@ -110,7 +110,11 @@ public class KeyboardChangeListener implements ViewTreeObserver.OnGlobalLayoutLi
         Display defaultDisplay = mWindow.getWindowManager().getDefaultDisplay();
         int screenHeight = 0;
         Point point = new Point();
-        defaultDisplay.getSize(point);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            defaultDisplay.getRealSize(point);
+        } else {
+            defaultDisplay.getSize(point);
+        }
         screenHeight = point.y;
         return screenHeight;
     }
